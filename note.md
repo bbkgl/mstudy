@@ -4,22 +4,10 @@
 
 ## Git
 
-### git submodule
-
-1
-
-### git lfs
-
-2
-
-### git config --global
-
-3
-
-### git branch -a
-
-4
-
+- `git submodule`待学
+- `git lfs`待学
+- `git config --global `待学
+- `git branch <name>` 待学
 
 ## Docker
 - 安装docker：`sudo apt install docker.io`
