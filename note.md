@@ -7,7 +7,9 @@
 - `git submodule`待学
 - `git lfs`待学
 - `git config --global `待学
-- `git branch <name>` 待学
+- `git branch <branch_name>`  创建分支
+- `git checkout <branch_name>`切换分支
+- 创建分支并且换到分支`git checkout -b <branch_name>`相当于一次性执行上述两条命令
 
 ## Docker
 - 安装docker：`sudo apt install docker.io`
