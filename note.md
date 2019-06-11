@@ -6,7 +6,7 @@
 
 - `git submodule`待学
 - `git lfs`待学
-- `git config --global `待学
+- `git config --global `配置全局的邮箱和用户，以后clone就不用输入用户名和密码
 - `git branch <branch_name>`  创建分支
 - `git checkout <branch_name>`切换分支
 - 创建分支并且换到分支`git checkout -b <branch_name>`相当于一次性执行上述两条命令
@@ -32,9 +32,17 @@
 
 ### TDA-Server
 
-> [gitlab](https://gitlab.momenta.works/1v1r/tda-server)
+> [Gitlab](https://gitlab.momenta.works/1v1r/tda-server)
 
+## Linux
 
+- 文件传输：`scp <local_path> <hostname@ip:des_path>`
+- `ssh hostname@ip`：ssh连接
+- `CTRL + Z`：后在终端输入fg可以解决
+- `ldd <可执行文件名> `：查看可执行文件依赖
+- `file <文件名>`： 查看文件类型
+- 交叉编译
+- 
 
 ## dbc
 
@@ -46,3 +54,4 @@
 
 ### tmux
 2333
+
