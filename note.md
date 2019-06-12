@@ -41,17 +41,47 @@
 - `CTRL + Z`：后在终端输入fg可以解决
 - `ldd <可执行文件名> `：查看可执行文件依赖
 - `file <文件名>`： 查看文件类型
-- 交叉编译
-- 
+
+### vim
+
+- 命令行模式下：`gg=G`代码格式化
+- 命令行模式下，直接写数字可以换行
+
+### 交叉编译
+
+> 参考[构建ARM Linux交叉编译工具链 详解](https://blog.csdn.net/hailin0716/article/details/17578767)
+
+交叉编译就是在一个平台上编译出能在其他不同体系结构的平台上运行的程序。
+
+### 交叉编译工具链及使用方法
+
+**使用方法**
+
+- cd到tda-server下
+- 修改CMakeLists.txt，主要是添加命令`add executable(exe_name, *.cpp)`
+- 然后`mkenv.py --platform tda`，会将整个项目都执行交叉编译
+- `file exe_name`可以查看可执行文件运行平台
 
 ## dbc
 
 - generator生成.h和.cpp文件
 - 然后移动到dbc_module中
 
+## CMake
+
+待
+
+## ZeroMQ学习
+
+
+
 
 ## Others
 
 ### tmux
-2333
+- 启动双屏
+  - `tmux`
+  - `Ctrl + b`
+  - `shift + m`
+- 切换屏幕`Ctrl + b`，然后上下切换
 
