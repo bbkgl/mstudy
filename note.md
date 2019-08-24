@@ -66,6 +66,8 @@ git commit -m 'update .gitignore'
 
 ## Docker
 
+### 一些命令
+
 - 安装docker：`sudo apt install docker.io`
 - 查找镜像：`sudo docker search <ubuntu>`
 - 拉取镜像：`sudo docker pull <ubuntu>`
@@ -79,6 +81,14 @@ git commit -m 'update .gitignore'
   - 如果`REPOSITORY:TAG`和以前的一样的话，会覆盖以前的镜像
 - 查看本地有的镜像：`sudo docker images`
 - docker中出现中文乱码的情况，包括vim中文出现乱码，启动docker的时候在命令中加入选项：`env LANG=C.UTF-8`，我是在`/bin/bash`前面加入的
+
+### 如何解决在docker里无法修改其他用户权限的问题？
+
+进入docker后，就是root用户了，所以创建的文件都是root的，如果用其他工具远程连接到服务器修改的时候如果不是root用户，就会无法修改文件，所以需要在docker里修改一下权限，比如将某个文件/文件夹的所属改为某个用户。
+
+但是问题来了，docker里其实没有这个用户，只有root用户？？？？
+
+解决办法就是，在docker里创建一个同名用户，然后执行`chown -R <user_name> <file/dir_name>`就行了。
 
 ## GDB
 
@@ -603,6 +613,8 @@ x1 y1 x2 y2 hide track_id score gt_type category_id
 13. perception编译成的库不打印时间log。
 
     添加编译选项`../mkenv.py --platform armv7 -DSDK_VERSION=1.1.8 -DFLC_PROF=ON`
+    
+14. size_t使无符号类型，和负数比较的时候，会把负数转换成正数，比如-1转换成一个很大的数
 
 ### 交叉编译
 
@@ -661,24 +673,15 @@ perception_ofo
 
 ## Others
 
-### dbc
+### VSCODE
 
-- generator生成.h和.cpp文件
-- 然后移动到dbc_module中
+1. 如何设置谷歌C++代码风格，并保持4空格缩进，修改settings.json。
 
-### Can-Hub
+   ```json
+   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
+   ```
 
-- input，获取输入数据并文本解析，包括socket和文本输入
-- 解析
-  - can_parser解析文本，根据dbc的id去调用对应的dbc_module生成的h和cpp文件
-  - protobuf会根据carstate.proto的配置信息生成对应的h和cpp文件，用来序列化和反序列化
-- output：反序列化换成字符串，再根据情况输出
-  - 将车信息转成json格式，然后保存到文件中
-  - 将车信息直接发送给客户端
-
-### TDA-Server
-
-> [Gitlab](https://gitlab.momenta.works/1v1r/tda-server)
+2. `ctrl + ALT + -`
 
 ### tmux
 
