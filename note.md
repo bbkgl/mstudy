@@ -642,6 +642,26 @@ x1 y1 x2 y2 hide track_id score gt_type category_id
 
 Tips：1v1r-perception下的firmware一定要使用对应的分支。
 
+### 如何让线程绑定在某个核心上执行
+
+```cpp
+void run(double rate, int id) {
+        // 绑定线程到不同的CPU
+        cpu_set_t mask;
+        CPU_ZERO(&mask);
+        CPU_SET(id, &mask);
+        int tid = syscall(__NR_gettid);
+        sched_setaffinity(tid, sizeof(mask), &mask);
+        
+    	...
+        ...
+    }
+
+```
+
+- 其中的id表示的就是第几个核心，从0开始
+- __NR_gettid取值224
+
 ## CMake
 
 ### 添加功能
@@ -664,8 +684,6 @@ add_subdirectory(src/ofo)
 ...
 perception_ofo
 ```
-
-
 
 ## ZeroMQ学习
 
